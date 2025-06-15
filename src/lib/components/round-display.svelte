@@ -198,23 +198,6 @@
 			/>
 		</div>
 	{/if}
-
-	<div class="h-20 text-right">
-		{#if players.user.hasGuessed && players.opponent.hasGuessed}
-			<div class="py-4">
-				You Guessed: {#if players.user.isCorrect}✅{:else}❌{/if}
-				{page.data.flags?.find((f) => f.id === players.user.guess)?.name} in {players.user
-					.guessTime}ms
-			</div>
-			<div class="py-4">
-				Opponnent Guessed: {#if players.opponent.isCorrect}✅{:else}❌{/if}
-				{page.data.flags?.find((f) => f.id === players.opponent.guess)?.name} in {players.opponent
-					.guessTime}ms
-			</div>
-		{:else if (game.player1_id === user.current?.id && currentRound.player2_guess) || (game.player2_id === user.current?.id && currentRound.player1_guess)}
-			Opponnent Guessed
-		{/if}
-	</div>
 </div>
 <FlagBox
 	flags={page.data.flags}
